@@ -3,9 +3,11 @@ import 'dotenv/config'; // Load environment variables from .env file
 import express from 'express';
 import { connectDB } from './db/connection.js'; // Import the database connection function
 import { weatherRouter } from './routes/weatherRoutes.js'; // Import our weather routes
+import cors from  "cors";
 
 const app = express();
 app.use(express.json()); // Middleware to parse JSON request bodies
+app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 
@@ -30,3 +32,6 @@ app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
     console.log(`Access weather API at http://localhost:${PORT}/api/v1/weather`);
 });
+
+
+// https://weatherserviceapi-ip30.onrender.com
